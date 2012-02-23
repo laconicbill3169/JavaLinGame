@@ -76,6 +76,12 @@ public class JavaLineGame extends JFrame
                 //start a try catch statement to allow the infinite loop to stop if there is an exception.
                 try
                 {
+                    if (boxBottom.intersects(bottom) || boxRight.intersects(bottom) || boxRight.intersects(bottom))
+                    {
+                        boxBottom.y = (HEIGHT/8)*7;
+                        boxRight.y = (HEIGHT - 130);
+                        boxLeft.y = (HEIGHT - 130);
+                    }
                     
                 }
                 catch (Exception e)
@@ -90,7 +96,34 @@ public class JavaLineGame extends JFrame
         
         //imported this for KeyListener
         public void keyPressed(KeyEvent event)
-        {            
+        {   
+            
+            int key = event.getKeyCode();
+            
+            if (key == KeyEvent.VK_LEFT)
+            {
+                boxBottom.x -= 25;
+                boxLeft.x -= 25;
+                boxRight.x -= 25;
+            }
+            if (key == KeyEvent.VK_RIGHT)
+            {
+               boxBottom.x += 25;
+                boxLeft.x += 25;
+                boxRight.x += 25; 
+            }
+            if (key == KeyEvent.VK_UP)
+            {
+                boxBottom.y -= 25;
+                boxLeft.y -= 25;
+                boxRight.y -= 25;
+            }
+            if (key == KeyEvent.VK_DOWN)
+            {
+                boxBottom.y += 25;
+                boxLeft.y += 25;
+                boxRight.y += 25;
+            }
         }
         
         //imported this for KeyListener
